@@ -286,7 +286,7 @@ header a {
 .content {
   position: relative;
   display: block;
-  font-size: 1.1em;
+  font-size: 3vh;
   background: none;
   height: calc(100% - 80px - 2.5em);
   overflow-y: auto;
@@ -359,11 +359,6 @@ header a {
 
   #splash {
     display: none;
-  }
-}
-@media (max-height: 35em) {
-  .content {
-    font-size: 2vh;
   }
 }
 

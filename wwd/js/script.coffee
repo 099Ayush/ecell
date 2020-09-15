@@ -187,6 +187,24 @@ $(document).bind('touchend'
         $('#left').trigger('click')
 )
 
+$(window).bind('keydown'
+  (e) ->
+    e = e || window.event
+    console.log('A key pressed')
+    if (e.keyCode == 37)
+      console.log('left')
+      $('#left').trigger('click')
+    else if (e.keyCode == 39)
+      $('#right').trigger('click')
+      console.log('right')
+    else
+      if $(document).data('scrolling') == '1'
+        return
+      if (e.keyCode == 40) && active < 4
+        $('#navlink' + (active + 1).toString()).trigger('click')
+      else if(e.keyCode == 38) && active > 1
+        $('#navlink' + (active - 1).toString()).trigger('click')
+)
 
 #$(document).on('wheel'
 #  (e) ->
@@ -290,6 +308,8 @@ interval = setInterval(
   60000)
 
 $('#left').click ->
+  if $(this).prop('disabled')
+    return
   clearInterval(interval)
   $('.card').css('transition', '0.25s all')
   n = $('#section' + active.toString()).find('.card').length
@@ -314,6 +334,8 @@ $('#left').click ->
   60000)
 
 $('#right').click ->
+  if $(this).prop('disabled')
+    return
   clearInterval(interval)
   $('.card').css('transition', '0.25s all')
   n = $('#section' + active.toString()).find('.card').length

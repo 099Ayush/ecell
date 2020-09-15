@@ -223,6 +223,27 @@
     }
   });
 
+  $(window).bind('keydown', function(e) {
+    e = e || window.event;
+    console.log('A key pressed');
+    if (e.keyCode === 37) {
+      console.log('left');
+      return $('#left').trigger('click');
+    } else if (e.keyCode === 39) {
+      $('#right').trigger('click');
+      return console.log('right');
+    } else {
+      if ($(document).data('scrolling') === '1') {
+        return;
+      }
+      if ((e.keyCode === 40) && active < 4) {
+        return $('#navlink' + (active + 1).toString()).trigger('click');
+      } else if ((e.keyCode === 38) && active > 1) {
+        return $('#navlink' + (active - 1).toString()).trigger('click');
+      }
+    }
+  });
+
   //$(document).on('wheel'
   //  (e) ->
   //    if $(document).data('scrolling') == '1'
@@ -330,6 +351,9 @@
 
   $('#left').click(function() {
     var id1, n;
+    if ($(this).prop('disabled')) {
+      return;
+    }
     clearInterval(interval);
     $('.card').css('transition', '0.25s all');
     n = $('#section' + active.toString()).find('.card').length;
@@ -356,6 +380,9 @@
 
   $('#right').click(function() {
     var id1, n;
+    if ($(this).prop('disabled')) {
+      return;
+    }
     clearInterval(interval);
     $('.card').css('transition', '0.25s all');
     n = $('#section' + active.toString()).find('.card').length;
