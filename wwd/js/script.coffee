@@ -225,6 +225,8 @@ $(window).bind('keydown'
 #)
 #
 
+$('.content').css('height', 'calc(90% - ' + $('.title').css('height') + ')')
+
 $('body').on('mousewheel'
   (e) ->
     if typeof e.originalEvent.detail == 'number' && e.originalEvent.detail != 0

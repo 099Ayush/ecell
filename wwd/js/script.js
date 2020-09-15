@@ -262,6 +262,8 @@
   //      $('#navlink' + (Math.max(0, prv)).toString()).trigger('click')
   //)
 
+  $('.content').css('height', 'calc(90% - ' + $('.title').css('height') + ')');
+
   $('body').on('mousewheel', function(e) {
     if (typeof e.originalEvent.detail === 'number' && e.originalEvent.detail !== 0) {
       if (e.originalEvent.detail > 0) {
