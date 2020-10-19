@@ -23,31 +23,21 @@ $(document).ready(function () {
     });
 });
 
-$(window).on('load', function () {
-
-    mark1(1);
-    mark2(1);
-
-    $('section .table, section .table-cell').css('height', $(window).height() - parseFloat($('#doc-nav').css('height')) + 'px');
-    setTimeout(function () {
-        $('#loader').animate({
-            opacity: 0
-        }, 500);
-        setTimeout(function () {
-            $('#loader').css('display', 'none');
-        }, 500);
-    }, 1000);
-
+function onwindowload() {
+    setTimeout(() => {
+        $('.focus, .focus-cover').css('display', 'none');
+    }, 300);
+    $('section').css('overflow', 'auto');
     setTimeout(() => {
         let count = 0;
-        $('#s1 .card').each(function() {
+        $('#s1 .card').each(function () {
             let $t = $(this);
-            setTimeout(()=>{
+            setTimeout(() => {
                 $t.css('transform', 'none').css('opacity', 1);
             }, count * 50);
             count++;
         });
-    }, 1500);
+    }, 100);
 
     $(window).on('resize', function () {
         $('#loader, #loader .table, #loader .table-cell').css('height', $(window).height() + 'px');
@@ -93,9 +83,9 @@ $(window).on('load', function () {
         if (current_section === 2) {
             setTimeout(() => {
                 let count = 0;
-                $('#s2 .card').each(function() {
+                $('#s2 .card').each(function () {
                     let $t = $(this);
-                    setTimeout(()=>{
+                    setTimeout(() => {
                         $t.css('transform', 'none').css('opacity', 1);
                     }, count * 50);
                     count++;
@@ -134,7 +124,7 @@ $(window).on('load', function () {
         }, 250);
     });
 
-    $('.more-info-btn').on('click', function() {
+    $('.more-info-btn').on('click', function () {
         let $t = $(this).parent().parent();
         $t.find('.logo').clone().appendTo('#clone').addClass('popup-logo');
         $('#name').html($t.find('.name').html());
@@ -144,16 +134,16 @@ $(window).on('load', function () {
         $p.css('display', 'block');
         $p.css('opacity');
         $p.addClass('active');
-        setTimeout(()=>$p1.addClass('active'), 250);
+        setTimeout(() => $p1.addClass('active'), 250);
 
     });
 
-    $('#close').on('click', function() {
+    $('#close').on('click', function () {
         $('#popup').removeClass('active');
-        setTimeout(()=>{
+        setTimeout(() => {
             let $p = $('#popup-cover');
             $p.removeClass('active');
-            setTimeout(()=>{
+            setTimeout(() => {
                 $p.css('display', 'none');
                 $('#clone').html('');
             }, 500);
@@ -271,5 +261,112 @@ $(window).on('load', function () {
             $('.nav-item-active').html($t.html()).css('transform', 'none');
         }, 400);
     });
+}
 
+function focuss($t) {
+    $('.focus').addClass('active');
+    $('.focus').css('left');
+    $('.focus').css('left', $t.offset().left);
+    $('.focus').css('top');
+    $('.focus').css('top', $t.offset().top);
+    $('.focus').css('height');
+    $('.focus').css('height', $t.css('height'));
+    $('.focus').css('width');
+    $('.focus').css('width', $t.css('width'));
+
+    if ($t.hasClass('card')) {
+        $('.focus').css('left');
+        $('.focus').css('left', $t.offset().left - parseFloat($t.css('width')) / 2);
+        $('.focus').css('top');
+        $('.focus').css('top', $t.offset().top - parseFloat($t.css('height')) / 2);
+        setTimeout(() => {
+            $t.css('transform', 'none').css('opacity', 1);
+        }, 50);
+    }
+
+    let $i = $('.intro-dialog');
+    $i.removeClass('active');
+    $('#desc').html($t.data('desc'));
+    $i.addClass('active');
+}
+
+let int = 0;
+
+let introcount = 0, introinit = -1;
+$('.tour-element').each(function (index, element) {
+    if ($(this).css('display') !== 'none') {
+        introcount = index;
+        if (introinit === -1) introinit = index;
+    }
+});
+
+$(window).on('load', function () {
+
+    mark1(1);
+    mark2(1);
+
+    $('section .table, section .table-cell').css('height', $(window).height() - parseFloat($('#doc-nav').css('height')) + 'px');
+    setTimeout(function () {
+        $('#loader').animate({
+            opacity: 0
+        }, 500);
+        setTimeout(function () {
+            $('#loader').css('display', 'none');
+
+            if (!localStorage.notFirstVisit) {
+                while ($('.tour-element').eq(int).css('display') === 'none') int++;
+                focuss($('.tour-element').eq(int));
+                localStorage.notFirstVisit = "1";
+                return;
+            }
+            onwindowload();
+        }, 500);
+    }, 1000);
+
+});
+
+$('#next').unbind().on('click', function () {
+    int++;
+    while ($('.tour-element').eq(int).css('display') === 'none') int++;
+    console.log(int === introcount);
+    if (int === introcount) {
+        $('#next').css('display', 'none');
+        $('#skip').html('Done');
+    } else {
+        $('#next').css('display', 'inline');
+        $('#skip').html('Skip');
+    }
+
+    if (int === introinit) {
+        $('#prev').css('display', 'none');
+    } else {
+        $('#prev').css('display', 'initial');
+    }
+    focuss($('.tour-element').eq(int));
+});
+
+$('#prev').unbind().on('click', function () {
+    int--;
+    while ($('.tour-element').eq(int).css('display') === 'none') int--;
+    console.log(int === introcount);
+    if (int === introcount) {
+        $('#next').css('display', 'none');
+        $('#skip').html('Done');
+    } else {
+        $('#next').css('display', 'inline');
+        $('#skip').html('Skip');
+    }
+
+    if (int === introinit) {
+        $('#prev').css('display', 'none');
+    } else {
+        $('#prev').css('display', 'initial');
+    }
+    focuss($('.tour-element').eq(int));
+});
+
+$('#skip').unbind().on('click', function () {
+    $('.intro-dialog').removeClass('active');
+    $('.focus').css('left', 0).css('top', 0).css('width', '100vw').css('height', '100vh');
+    onwindowload();
 });

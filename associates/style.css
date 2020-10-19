@@ -36,7 +36,7 @@ section {
     margin: 0;
     padding: 0;
     width: 100vw;
-    overflow: auto;
+    overflow: hidden;
     position: fixed;
     z-index: 50;
     height: 100vh;
@@ -299,7 +299,6 @@ button:hover {
     display: block;
     margin: 0 auto;
     width: 100px;
-    vertical-align: middle;
 }
 
 .more-info {
@@ -408,22 +407,69 @@ button:hover {
     margin-left: 0;
 }
 
+.focus {
+    opacity: 0;
+    z-index: 10000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    box-shadow: 0 0 0 10000vw #000d;
+    transition: all 0.25s;
+    border-radius: 20px;
+}
+
+.focus.active {
+    opacity: 1;
+}
+
+.focus-cover {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+.intro-dialog {
+    z-index: 10000;
+    position: fixed;
+    margin: 50vh 50vw;
+    width: 50vw;
+    transform: translate(-50%, -50%) scale(0);
+    padding: 20px;
+    border: 2px solid #fff;
+    border-radius: 20px;
+    background-color: #000;
+    transition: all 0.25s;
+}
+
+.intro-dialog.active {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+#prev, #next, #skip {
+    margin-top: 30px;
+}
+
+#prev {
+    display: none;
+}
+
 @media screen and (max-width: 900px) {
     .nav {
         display: none;
     }
-
     .nav-p i, .nav-item-active {
         display: block;
     }
-
     #doc-nav-menu {
         display: none;
         position: fixed;
         left: 30px;
         top: 100px;
     }
-
     .doc-nav-menu-item {
         background: #eeeeff;
         border-bottom: 1.5px solid #444488;
@@ -437,21 +483,20 @@ button:hover {
         margin: 5px 0;
         transform: translateX(-10em);
     }
-
     .doc-nav-menu-item:hover {
         transform: translateX(10px);
     }
-
     .nav-p.active {
         transform: rotateZ(180deg);
     }
-
     .grid {
         grid-template-columns: auto auto auto;
     }
-
     #popup {
         width: 75%;
+    }
+    .intro-dialog {
+        width: 75vw;
     }
 }
 
@@ -459,8 +504,10 @@ button:hover {
     .grid {
         grid-template-columns: auto auto;
     }
-
     #popup {
+        width: 90%;
+    }
+    .intro-dialog {
         width: 90%;
     }
 }
@@ -469,8 +516,10 @@ button:hover {
     .grid {
         grid-template-columns: auto;
     }
-
     #popup {
+        width: 100%;
+    }
+    .intro-dialog {
         width: 100%;
     }
 }
