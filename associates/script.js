@@ -281,7 +281,7 @@ function focuss($t) {
         $('.focus').css('top', $t.offset().top - parseFloat($t.css('height')) / 2);
         setTimeout(() => {
             $t.css('transform', 'none').css('opacity', 1);
-        }, 50);
+        }, 300);
     }
 
     let $i = $('.intro-dialog');
@@ -313,10 +313,10 @@ $(window).on('load', function () {
         setTimeout(function () {
             $('#loader').css('display', 'none');
 
-            if (!localStorage.notFirstVisit) {
+            if (!localStorage.notFirstVisitToAssociates) {
                 while ($('.tour-element').eq(int).css('display') === 'none') int++;
                 focuss($('.tour-element').eq(int));
-                localStorage.notFirstVisit = "1";
+                localStorage.notFirstVisitToAssociates = "1";
                 return;
             }
             onwindowload();

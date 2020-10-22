@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery | E-Cell 2020</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+</head>
+
+<body>
+
+    <div id="loader">
+        <div class="table">
+            <div class="table-cell" style="text-align: center">
+                <svg id="spinner" xmlns="http://www.w3.org/2000/svg" width="102.67px" height="132px" viewBox="0 0 770 990"
+                    preserveAspectRatio="xMidYMid meet">
+                    <g id="layer101" fill="none" stroke-width="10" stroke="#88f" stroke-linecap="round">
+                        <path
+                            d="M80 670 l0 -260 318 2 317 3 0 85 0 85 -233 3 -233 2 3 81 3 80 230 2 230 2 0 85 0 85 -317 3 -318 2 0 -260z" />
+                        <path d="M80 160 l0 -90 318 2 317 3 0 85 0 85 -317 3 -318 2 0 -90z" />
+                    </g>
+                </svg>
+            </div>
+        </div>
+    </div>
+
+    <header id="doc-nav">
+        <div class="dummy"></div>
+        <div class="nav-item-active">Gallery</div>
+        <div class="ham">
+            <table style="height: 100%">
+                <tr style="height: 100%">
+                    <td style="vertical-align: middle">
+                        <i class="lnr lnr-map tour-element" data-desc="Explore our website!"></i>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </header>
+
+    <div class="menu-cover">
+        <table style="height: 100%">
+            <tr>
+                <td style="text-align: center">
+                    <div id="site-nav">
+                        <div class="site-nav-item">About</div>
+                        <br>
+                        <div class="site-nav-item">Initiatives</div>
+                        <br>
+                        <div class="site-nav-item"><a href="../wwd/">What We Do</a></div>
+                        <br>
+                        <div class="site-nav-item">Archives</div>
+                        <br>
+                        <div class="site-nav-item">Partners</div>
+                        <br>
+                        <div class="site-nav-item"><a href="../teams/">Teams</a></div>
+                        <br>
+                        <div class="site-nav-item">Contact</div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: center">
+                    <div class="spitems">
+                        <div class="spitem" style="display: inline-block">EnSpace</div>
+                        <div class="spitem" style="display: inline-block">SINE</div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <div class="ham-exit"><i class="lnr lnr-cross"></i></div>
+    </div>
+
+    <div class="page" id="back">
+        <div class="fpl left">
+            <img src="images/img2.jpg" alt="Image 2">
+        </div><div class="fpr right">
+            <img src="images/img2.jpg" alt="Image 2">
+        </div>
+    </div>
+
+    <div class="page" id="front">
+        <div class="fpl left tour-element" data-desc="Click anywhere in this area to flip to the previous image.">
+            <img src="images/img1.jpg" alt="Image 1">
+        </div><div class="fpr right tour-element" data-desc="Click anywhere in this area to flip to the next image.">
+            <img src="images/img1.jpg" alt="Image 1">
+        </div>
+    </div>
+
+    <div id="bar">
+        <button id="details" class="tour-element" data-desc="View timestamp and details of the photograph.">Details</button>
+        <!-- <button id="fullscreen" class="tour-element" data-desc="View the photograph in fullscreen mode.">Full Screen</button> -->
+    </div>
+
+    <div id="cover2"></div>
+    <div id="dialog">
+        <div id="img">
+            <div id="bgi"></div>
+            <img src="./images/img1.jpg" alt="">
+        </div>
+        <div id="container1">
+            <div id="title"></div>
+            <div id="desc"></div>
+            <button id="close">Close</button>
+        </div>
+    </div>
+
+    <div id="cover"></div>
+
+    <div class="focus"></div>
+    <div class="focus-cover"></div>
+    <div class="intro-dialog">
+        <div id="focus-desc"></div>
+        <button class="button-class" id="skip">Skip</button>
+        <button class="button-class" id="prev">Prev</button>
+        <button class="button-class" id="next">Next</button>
+    </div>
+
+    <script src="../home/jquery.min.js"></script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>
