@@ -9,6 +9,13 @@ html, body {
     overflow-x: hidden;
 }
 
+button, #bar, #doc-nav {
+    user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+}
+
 *, *::after, *::before {
     color: #eef;
     outline: none;
@@ -27,7 +34,6 @@ body {
     width: calc(var(--width) + 20px);
     perspective: calc(2 * var(--width));
     cursor: pointer;
-    z-index: 100;
 }
 
 #bottom {
@@ -42,15 +48,11 @@ button {
     transition: all 0.25s;
     font: inherit;
     cursor: pointer;
-    user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    -webkit-user-select: none;
 }
 
 button:hover {
     background: #ddf;
-    color: #000;
+    color: #112;
 }
 
 .fpl, .fpr {
@@ -215,7 +217,10 @@ img {
 
 #bar {
     position: fixed;
-    bottom: 20px;
+    width: 100vw;
+    text-align: center;
+    bottom: 0;
+    padding: 10px 0 15px 0;
     left: 50vw;
     transform: translateX(-50%);
     letter-spacing: 2vw;
@@ -229,6 +234,11 @@ img {
     z-index: 99;
     padding: 20px;
     box-sizing: border-box;
+}
+
+#doc-nav, #bar {
+    background: #224;
+    box-shadow: 0 0 10px 0 #000;
 }
 
 .ham {
@@ -382,6 +392,10 @@ img {
     vertical-align: middle;
 }
 
+#details {
+    z-index: 900;
+}
+
 @keyframes draw2 {
     to {
         stroke-dashoffset: -5000px;
@@ -441,9 +455,24 @@ img {
     display: none;
 }
 
+@media screen and (max-width: 1200px) {
+    :root {
+        --width: 75vw;
+    }
+}
+
 @media screen and (max-width: 900px) {
     #dialog, .intro-dialog {
         width: 75%;
+    }
+    :root {
+        --width: 100vw;
+    }
+    .fpl, .fpr {
+        border-width: 5px;
+    }
+    .page {
+        width: calc(var(--width) + 10px);
     }
 }
 

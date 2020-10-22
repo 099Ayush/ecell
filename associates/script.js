@@ -2,6 +2,9 @@ var current_section = 1;
 var doc_nav_active = 1;
 
 $('section').css('z-index', 1).css('opacity', 0).css('top', $('#doc-nav').css('height')).css('height', $(window).height() - parseFloat($('#doc-nav').height()) + 'px');
+$(window).on('resize', function () {
+    $('section').css('height', $(window).height() - parseFloat($('#doc-nav').height()) + 'px');
+})
 $('#s' + current_section).css('z-index', 2).css('opacity', 1);
 
 function mark1(n) {
