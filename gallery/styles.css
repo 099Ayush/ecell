@@ -1,5 +1,10 @@
 :root {
-    --width: 60vw
+    --width: 60vw;
+    --res: calc(1920 / 1080);
+}
+
+* {
+    box-sizing: border-box;
 }
 
 html, body {
@@ -26,20 +31,6 @@ body {
     background: #224;
 }
 
-.page {
-    position: fixed;
-    top: 50vh;
-    left: 50vw;
-    transform: translate(-50%, -50%);
-    width: calc(var(--width) + 20px);
-    perspective: calc(2 * var(--width));
-    cursor: pointer;
-}
-
-#bottom {
-    z-index: -1;
-}
-
 button {
     background: none;
     border: 2px solid #ddf;
@@ -53,52 +44,6 @@ button {
 button:hover {
     background: #ddf;
     color: #112;
-}
-
-.fpl, .fpr {
-    display: inline-block;
-    width: calc(var(--width) / 2);
-    height: calc(9 / 16 * var(--width));
-    overflow: hidden;
-    border: 10px solid #eef;
-}
-
-.fpl {
-    transform-origin: 100% 100%;
-    border-right: none;
-    transform: rotateY(180deg);
-}
-
-.fpl.left {
-    transform: none;
-}
-
-.fpr {
-    border-left: none;
-    transform-origin: 0 50%;
-}
-
-.fpr.left {
-    transition: 0.5s all ease-in-out;
-    transform: rotateY(-180deg);
-}
-
-.fpr.right {
-    transform: none;
-}
-
-.fpl.right {
-    transform: rotateY(180deg);
-    transition: 0.5s all ease-in-out;
-}
-
-img {
-    width: var(--width);
-    user-select: none;
-}
-
-.fpr img {
-    margin-left: calc(var(--width) / (-2));
 }
 
 #cover2 {
@@ -454,6 +399,74 @@ img {
 #prev {
     display: none;
 }
+
+#book, #front {
+    width: var(--width);
+}
+
+#book {
+    position: fixed;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+    height: calc(var(--width) / var(--res));
+    perspective: 100em;
+}
+
+#back {
+    z-index: -100;
+}
+
+.left, .right {
+    position: absolute;
+    width: var(--width);
+    border: 10px solid #eef;
+}
+
+.left.top, .right.bottom, #back .left {
+    clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
+}
+
+.left.bottom, #back.right {
+    transform-origin: 50% 50%;
+    transform: rotateY(-180deg);
+}
+
+.right.bottom {
+    transform: rotateY(180deg);
+}
+
+.right.top, .left.bottom {
+    clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%);
+}
+
+.top {
+    backface-visibility: hidden;
+}
+
+.left {
+    z-index: 2;
+}
+
+.right {
+    z-index: 1;
+}
+
+.bottom {
+    z-index: -1;
+}
+
+/* .left.top {
+    transform: rotateY(180deg);
+}
+
+.left.bottom {
+    transform: none;
+}
+
+.right {
+    z-index: -2;
+} */
 
 @media screen and (max-width: 1200px) {
     :root {

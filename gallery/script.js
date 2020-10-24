@@ -14,53 +14,10 @@ var titles = [
     'Image 5'
 ]
 
+var n_img = 5;
+
 $(document).ready(function () {
-    let active_img = 1;
 
-    $('#back .fpl img').attr('src', 'images/img' + (5 - (6 - active_img) % 5) + '.jpg');
-    $('#back .fpr img').attr('src', 'images/img' + (active_img % 5 + 1) + '.jpg');
-    $('#desc').html(arr[active_img - 1]);
-    $('#title').html(titles[active_img - 1]);
-
-    $('.fpr').on('click', function () {
-        $('#cover').css('display', 'initial');
-        $(this).removeClass('right').addClass('left');
-        setTimeout(() => {
-            active_img = active_img % 5 + 1;
-            $(this).find('img').attr('src', 'images/img' + active_img + '.jpg').css('transform', 'scaleX(-1)');
-        }, 250);
-        setTimeout(() => {
-            $(this).removeClass('left').addClass('right').find('img').css('transform', 'none');
-            $(this).parent().find('.fpl img').attr('src', 'images/img' + active_img + '.jpg');
-            $('#img img').attr('src', 'images/img' + active_img + '.jpg');
-            $('#img #bgi').css('background-image', 'url(images/img' + active_img + '.jpg)');
-            $('#back .fpl img').attr('src', 'images/img' + (5 - (6 - active_img) % 5) + '.jpg');
-            $('#back .fpr img').attr('src', 'images/img' + (active_img % 5 + 1) + '.jpg');
-            $('#desc').html(arr[active_img - 1]);
-            $('#title').html(titles[active_img - 1]);
-            $('#cover').css('display', 'none');
-        }, 500);
-    });
-
-    $('.fpl').on('click', function () {
-        $('#cover').css('display', 'initial');
-        $(this).removeClass('left').addClass('right');
-        setTimeout(() => {
-            active_img = (5 - (6 - active_img) % 5);
-            $(this).find('img').attr('src', 'images/img' + active_img + '.jpg').css('transform', 'scaleX(-1)');
-        }, 250);
-        setTimeout(() => {
-            $(this).removeClass('right').addClass('left').find('img').css('transform', 'none');
-            $(this).parent().find('.fpr img').attr('src', 'images/img' + active_img + '.jpg');
-            $('#img img').attr('src', 'images/img' + active_img + '.jpg');
-            $('#img #bgi').css('background-image', 'url(images/img' + active_img + '.jpg)');
-            $('#back .fpl img').attr('src', 'images/img' + (5 - (6 - active_img) % 5) + '.jpg');
-            $('#back .fpr img').attr('src', 'images/img' + (active_img % 5 + 1) + '.jpg');
-            $('#desc').html(arr[active_img - 1]);
-            $('#title').html(titles[active_img - 1]);
-            $('#cover').css('display', 'none');
-        }, 500);
-    });
 
     $('#loader, #loader .table, #loader .table-cell').css('height', $(window).height() + 'px');
     $('#cover').css('display', 'none').css('background', 'transparent');
@@ -75,6 +32,102 @@ function onwindowload() {
     setTimeout(() => {
         $('.focus, .focus-cover').css('display', 'none');
     }, 300);
+
+    let active_img = 1;
+    let prev_img = 5 - (6 - active_img) % 5;
+    let next_img = active_img % n_img + 1;
+
+    $('#desc').html(arr[active_img - 1]);
+    $('#title').html(titles[active_img - 1]);
+    $('#img img').attr('src', 'images/img' + active_img + '.jpg');
+    $('#img #bgi').css('background-image', 'url(images/img' + active_img + '.jpg)');
+
+    $('.top').attr('src', './images/img' + active_img + '.jpg');
+    $('.left.top').css('transform', 'rotateY(0deg)');
+    $('.left.bottom').css('transform', 'rotateY(-180deg)').attr('src', './images/img' + prev_img + '.jpg');
+    $('#back .left').attr('src', './images/img' + prev_img + '.jpg');
+    $('#back .right, .right.bottom').attr('src', './images/img' + next_img + '.jpg');
+
+    setTimeout(() => $('.left, .right').css('transition', 'all 0.5s ease-in-out'), 100);
+
+
+    $('.left').hover(function () {
+        $('.right.bottom').css('z-index', 1);
+        $('.right.top').css('z-index', 2);
+        $('.left.bottom').css('z-index', 3);
+        $('.left.top').css('z-index', 4);
+    }).on('click', () => {
+
+        active_img = 5 - (6 - active_img) % 5;
+        prev_img = 5 - (6 - active_img) % 5;
+        next_img = active_img % n_img + 1;
+
+        $('.left.top').css('transform', 'rotateY(180deg)');
+        $('.left.bottom').css('transform', 'rotateY(0deg)');
+        $('#cover').css('display', 'initial');
+
+        setTimeout(() => { 
+            // let $t = $('#book').clone();
+            // $t.appendTo('body');
+            
+            $('.left, .right').css('transition', 'none');
+            $('.top').attr('src', './images/img' + active_img + '.jpg');
+            $('.left.top').css('transform', 'rotateY(0deg)');
+            $('.left.bottom').css('transform', 'rotateY(-180deg)').attr('src', './images/img' + prev_img + '.jpg');
+            $('#back .left').attr('src', './images/img' + prev_img + '.jpg');
+            $('#back .right, .right.bottom').attr('src', './images/img' + next_img + '.jpg');
+            
+            setTimeout(() => {
+                $('.left, .right').css('transition', 'all 0.5s ease-in-out');
+                $('#cover').css('display', 'none');
+            }, 100);
+
+            $('#desc').html(arr[active_img - 1]);
+            $('#title').html(titles[active_img - 1]);
+            $('#img img').attr('src', 'images/img' + active_img + '.jpg');
+            $('#img #bgi').css('background-image', 'url(images/img' + active_img + '.jpg)');
+
+        }, 500);
+    });
+
+    $('.right').hover(function () {
+        $('.left.bottom').css('z-index', 1);
+        $('.left.top').css('z-index', 2);
+        $('.right.bottom').css('z-index', 3);
+        $('.right.top').css('z-index', 4);
+    }).on('click', () => {
+
+        active_img = active_img % n_img + 1;
+        prev_img = 5 - (6 - active_img) % 5;
+        next_img = active_img % n_img + 1;
+
+        $('.right.top').css('transform', 'rotateY(-180deg)');
+        $('.right.bottom').css('transform', 'rotateY(0deg)');
+        $('#cover').css('display', 'initial');
+
+        setTimeout(() => {
+            // let $t = $('#book').clone();
+            // $t.appendTo('body');
+
+            $('.left, .right').css('transition', 'none');
+            $('.top').attr('src', './images/img' + active_img + '.jpg');
+            $('.right.top').css('transform', 'rotateY(0deg)');
+            $('.right.bottom').css('transform', 'rotateY(180deg)').attr('src', './images/img' + next_img + '.jpg');
+            $('#back .right').attr('src', './images/img' + next_img + '.jpg');
+            $('#back .left, .left.bottom').attr('src', './images/img' + prev_img + '.jpg');
+
+            setTimeout(() => {
+                $('.left, .right').css('transition', 'all 0.5s ease-in-out');
+                $('#cover').css('display', 'none');
+            }, 100);
+
+            $('#desc').html(arr[active_img - 1]);
+            $('#title').html(titles[active_img - 1]);
+            $('#img img').attr('src', 'images/img' + active_img + '.jpg');
+            $('#img #bgi').css('background-image', 'url(images/img' + active_img + '.jpg)');
+
+        }, 500);
+    });
 
     $(window).on('resize', function () {
         $('#loader, #loader .table, #loader .table-cell').css('height', $(window).height() + 'px');
