@@ -173,6 +173,7 @@ button:hover {
     left: 50vw;
     transform: translateX(-50%);
     letter-spacing: 2vw;
+    z-index: 99;
 }
 
 #doc-nav {

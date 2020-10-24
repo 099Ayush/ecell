@@ -87,9 +87,9 @@ function onwindowload() {
 
         setTimeout(async function () {
             let $t = $('#book').clone();
-            $t.appendTo('body');
-            await asnc();            
-            $t.remove();
+            await (async () => $t.appendTo('body'))();
+            await asnc();
+            setTimeout(() => $t.remove(), 10);
         }, 500);
     });
 
@@ -129,9 +129,9 @@ function onwindowload() {
 
         setTimeout(async function () {
             let $t = $('#book').clone();
-            $t.appendTo('body');
+            await (async () => $t.appendTo('body'))();
             await asnc();
-            $t.remove();
+            setTimeout(() => $t.remove(), 10);
         }, 500);
     });
 
