@@ -7,6 +7,10 @@
     box-sizing: border-box;
 }
 
+img {
+    user-select: none;
+}
+
 html, body {
     margin: 0;
     padding: 0;
@@ -421,6 +425,7 @@ button:hover {
     position: absolute;
     width: var(--width);
     border: 10px solid #eef;
+    cursor: pointer;
 }
 
 .left.top, .right.bottom, #back .left {

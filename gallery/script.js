@@ -66,17 +66,17 @@ function onwindowload() {
         $('.left.bottom').css('transform', 'rotateY(0deg)');
         $('#cover').css('display', 'initial');
 
-        setTimeout(() => { 
-            // let $t = $('#book').clone();
-            // $t.appendTo('body');
-            
+        setTimeout(() => {
+            let $t = $('#book').clone();
+            $t.appendTo('body');
+
             $('.left, .right').css('transition', 'none');
             $('.top').attr('src', './images/img' + active_img + '.jpg');
             $('.left.top').css('transform', 'rotateY(0deg)');
             $('.left.bottom').css('transform', 'rotateY(-180deg)').attr('src', './images/img' + prev_img + '.jpg');
             $('#back .left').attr('src', './images/img' + prev_img + '.jpg');
             $('#back .right, .right.bottom').attr('src', './images/img' + next_img + '.jpg');
-            
+
             setTimeout(() => {
                 $('.left, .right').css('transition', 'all 0.5s ease-in-out');
                 $('#cover').css('display', 'none');
@@ -86,6 +86,8 @@ function onwindowload() {
             $('#title').html(titles[active_img - 1]);
             $('#img img').attr('src', 'images/img' + active_img + '.jpg');
             $('#img #bgi').css('background-image', 'url(images/img' + active_img + '.jpg)');
+
+            $t.remove();
 
         }, 500);
     });
@@ -106,8 +108,8 @@ function onwindowload() {
         $('#cover').css('display', 'initial');
 
         setTimeout(() => {
-            // let $t = $('#book').clone();
-            // $t.appendTo('body');
+            let $t = $('#book').clone();
+            $t.appendTo('body');
 
             $('.left, .right').css('transition', 'none');
             $('.top').attr('src', './images/img' + active_img + '.jpg');
@@ -125,6 +127,8 @@ function onwindowload() {
             $('#title').html(titles[active_img - 1]);
             $('#img img').attr('src', 'images/img' + active_img + '.jpg');
             $('#img #bgi').css('background-image', 'url(images/img' + active_img + '.jpg)');
+
+            $t.remove();
 
         }, 500);
     });
@@ -209,6 +213,8 @@ function focuss($t) {
     $('.focus').css('height', $t.css('height'));
     $('.focus').css('width');
     $('.focus').css('width', $t.css('width'));
+    if ($t.hasClass('left') || $t.hasClass('right')) $('.focus').css('width', parseFloat($t.css('width')) / 2 + 'px');
+    if ($t.hasClass('right')) $('.focus').css('left', $t.offset().left + parseFloat($t.css('width')) / 2 + 'px');
 
     let $i = $('.intro-dialog');
     $i.removeClass('active');
