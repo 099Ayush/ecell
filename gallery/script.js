@@ -66,10 +66,7 @@ function onwindowload() {
         $('.left.bottom').css('transform', 'rotateY(0deg)');
         $('#cover').css('display', 'initial');
 
-        setTimeout(() => {
-            let $t = $('#book').clone();
-            $t.appendTo('body');
-
+        async function asnc() {
             $('.left, .right').css('transition', 'none');
             $('.top').attr('src', './images/img' + active_img + '.jpg');
             $('.left.top').css('transform', 'rotateY(0deg)');
@@ -86,9 +83,13 @@ function onwindowload() {
             $('#title').html(titles[active_img - 1]);
             $('#img img').attr('src', 'images/img' + active_img + '.jpg');
             $('#img #bgi').css('background-image', 'url(images/img' + active_img + '.jpg)');
+        }
 
+        setTimeout(async function () {
+            let $t = $('#book').clone();
+            $t.appendTo('body');
+            await asnc();            
             $t.remove();
-
         }, 500);
     });
 
@@ -97,7 +98,7 @@ function onwindowload() {
         $('.left.top').css('z-index', 2);
         $('.right.bottom').css('z-index', 3);
         $('.right.top').css('z-index', 4);
-    }).on('click', () => {
+    }).on('click', async function () {
 
         active_img = active_img % n_img + 1;
         prev_img = 5 - (6 - active_img) % 5;
@@ -107,10 +108,7 @@ function onwindowload() {
         $('.right.bottom').css('transform', 'rotateY(0deg)');
         $('#cover').css('display', 'initial');
 
-        setTimeout(() => {
-            let $t = $('#book').clone();
-            $t.appendTo('body');
-
+        async function asnc() {
             $('.left, .right').css('transition', 'none');
             $('.top').attr('src', './images/img' + active_img + '.jpg');
             $('.right.top').css('transform', 'rotateY(0deg)');
@@ -127,9 +125,13 @@ function onwindowload() {
             $('#title').html(titles[active_img - 1]);
             $('#img img').attr('src', 'images/img' + active_img + '.jpg');
             $('#img #bgi').css('background-image', 'url(images/img' + active_img + '.jpg)');
+        }
 
+        setTimeout(async function () {
+            let $t = $('#book').clone();
+            $t.appendTo('body');
+            await asnc();
             $t.remove();
-
         }, 500);
     });
 
