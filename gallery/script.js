@@ -7,12 +7,14 @@ var arr = [
 ]
 
 var titles = [
-    'Image 1',
-    'Image 2',
-    'Image 3',
-    'Image 4',
-    'Image 5'
+    'Sunset with a Silhouette of Mountains',
+    'A Glowing Ring Illustration',
+    'The Night Sky Merging with the Sunset',
+    'Another One',
+    'Nothing, Just an Abstract Illustration'
 ]
+
+var det_btn_html = "<button class=\"details\"></button>";
 
 var n_img = 5;
 
@@ -24,7 +26,14 @@ $(document).ready(function () {
 
     $(window).on('resize', function () {
         $('#loader, #loader .table, #loader .table-cell').css('height', $(window).height() + 'px');
+        $('#book').css('top', ($(window).height() - parseFloat($('#book').height())) / 2 + 'px');
     });
+
+    arr.forEach(element => {
+        $('#bar').html($('#bar').html() + det_btn_html);
+    });
+    $('.details').eq(0).addClass('tour-element').attr('data-desc', 'Click here to know more about the image.').html(titles[0]);
+    $('.details').eq(1).addClass('tour-element').attr('data-desc', 'Click here to flip to the corresponding image.');
 
 });
 
@@ -39,28 +48,47 @@ function onwindowload() {
 
     $('#desc').html(arr[active_img - 1]);
     $('#title').html(titles[active_img - 1]);
-    $('#img img').attr('src', 'images/img' + active_img + '.jpg');
-    $('#img #bgi').css('background-image', 'url(images/img' + active_img + '.jpg)');
 
-    $('.top').attr('src', './images/img' + active_img + '.jpg');
-    $('.left.top').css('transform', 'rotateY(0deg)');
-    $('.left.bottom').css('transform', 'rotateY(-180deg)').attr('src', './images/img' + prev_img + '.jpg');
-    $('#back .left').attr('src', './images/img' + prev_img + '.jpg');
-    $('#back .right, .right.bottom').attr('src', './images/img' + next_img + '.jpg');
+    $('.details').eq(active_img - 1).html(titles[active_img - 1]);
 
-    setTimeout(() => $('.left, .right').css('transition', 'all 0.5s ease-in-out'), 100);
-
-
-    $('.left').hover(function () {
-        $('.right.bottom').css('z-index', 1);
-        $('.right.top').css('z-index', 2);
-        $('.left.bottom').css('z-index', 3);
-        $('.left.top').css('z-index', 4);
-    }).on('click', () => {
-
-        active_img = 5 - (6 - active_img) % 5;
+    $('#right-cover').on('click', function () {
+        $('#cover').css('display', 'initial');
+        $('.details').eq(active_img - 1).html('');
+        active_img = next_img;
+        $('.front').attr('src', './images/img' + active_img + '.jpg');
+        $('.front').removeClass().addClass('tmp');
+        $('.back').removeClass().addClass('front');
+        $('.tmp').removeClass().addClass('back');
+        $('#desc').html(arr[active_img - 1]);
+        $('#title').html(titles[active_img - 1]);
+        $('.details').eq(active_img - 1).html(titles[active_img - 1]);
+        $('#img #bgi').css('background', 'url(\'./images/img' + active_img + '.jpg\') center');
+        $('#img #bgi').css('background-size', 'cover');
+        $('#img img').attr('src', './images/img' + active_img + '.jpg');
         prev_img = 5 - (6 - active_img) % 5;
         next_img = active_img % n_img + 1;
+<<<<<<< HEAD
+        $('#cover').css('display', 'none');
+    });
+
+    $('#left-cover').on('click', function () {
+        $('#cover').css('display', 'initial');
+        $('.details').eq(active_img - 1).html('');
+        active_img = prev_img;
+        $('.front').attr('src', './images/img' + active_img + '.jpg');
+        $('.front').removeClass().addClass('tmp');
+        $('.back').removeClass().addClass('front');
+        $('.tmp').removeClass().addClass('back');
+        $('#desc').html(arr[active_img - 1]);
+        $('#title').html(titles[active_img - 1]);
+        $('.details').eq(active_img - 1).html(titles[active_img - 1]);
+        $('#img #bgi').css('background', 'url(\'./images/img' + active_img + '.jpg\') center');
+        $('#img #bgi').css('background-size', 'cover');
+        $('#img img').attr('src', './images/img' + active_img + '.jpg');
+        prev_img = 5 - (6 - active_img) % 5;
+        next_img = active_img % n_img + 1;
+        $('#cover').css('display', 'none');
+=======
 
         $('.left.top').css('transform', 'rotateY(180deg)');
         $('.left.bottom').css('transform', 'rotateY(0deg)');
@@ -133,6 +161,7 @@ function onwindowload() {
             await asnc();
             setTimeout(() => $t.remove(), 10);
         }, 500);
+>>>>>>> f4c5f3cdfa3287d68674384426fd7c7e59304f6a
     });
 
     $(window).on('resize', function () {
@@ -189,12 +218,39 @@ function onwindowload() {
         return setTimeout(fun2, count * 150);
     });
 
-    $('#details').on('click', function () {
-        $('#cover2').css('display', 'block');
-        $('#cover2').css('opacity');
-        $('#cover2').addClass('active');
-        $('#dialog').addClass('active');
+    $('.details').on('click', function () {
+        if ($('.details').index(this) + 1 === active_img) {
+            $('#cover2').css('display', 'block');
+            $('#cover2').css('opacity');
+            $('#cover2').addClass('active');
+            $('#dialog').addClass('active');
+        } else {
+            $('#cover').css('display', 'initial');
+            $('.details').eq(active_img - 1).html('');
+            active_img = $('.details').index(this) + 1;
+            $('.front').attr('src', './images/img' + active_img + '.jpg');
+            $('.front').removeClass().addClass('tmp');
+            $('.back').removeClass().addClass('front');
+            $('.tmp').removeClass().addClass('back');
+            $('#desc').html(arr[active_img - 1]);
+            $('#title').html(titles[active_img - 1]);
+            $('.details').eq(active_img - 1).html(titles[active_img - 1]);
+            $('#img #bgi').css('background', 'url(\'./images/img' + active_img + '.jpg\') center');
+            $('#img #bgi').css('background-size', 'cover');
+            $('#img img').attr('src', './images/img' + active_img + '.jpg');
+            prev_img = 5 - (6 - active_img) % 5;
+            next_img = active_img % n_img + 1;
+            $('#cover').css('display', 'none');
+        }
     });
+
+    $('#cover2').on('click', function () {
+        $('#cover2').css('opacity');
+        $('#cover2, #dialog').removeClass('active');
+        setTimeout(function () {
+            $('#cover2').css('display', 'none');
+        }, 300);
+    })
 
     $('#close').on('click', function () {
         $('#cover2').css('opacity');
@@ -202,7 +258,7 @@ function onwindowload() {
         setTimeout(function () {
             $('#cover2').css('display', 'none');
         }, 300);
-    })
+    });
 }
 
 function focuss($t) {
@@ -226,15 +282,16 @@ function focuss($t) {
 
 let int = 0;
 
-let introcount = 0, introinit = -1;
-$('.tour-element').each(function (index, element) {
-    if ($(this).css('display') !== 'none') {
-        introcount = index;
-        if (introinit === -1) introinit = index;
-    }
-});
+let introcount = 0,
+    introinit = -1;
 
 $(window).on('load', function () {
+    $('.tour-element').each(function (index, element) {
+        if ($(this).css('display') !== 'none') {
+            introcount = index;
+            if (introinit === -1) introinit = index;
+        }
+    });
     setTimeout(function () {
         $('#loader').animate({
             opacity: 0

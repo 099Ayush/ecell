@@ -989,7 +989,7 @@
                         <br>
                         <div class="site-nav-item"><a href="../teams/">Teams</a></div>
                         <br>
-                        <div class="site-nav-item">Contact</div>
+                        <div class="site-nav-item"><a href="../gallery/">Gallery</a></div>
                     </div>
                 </td>
             </tr>
@@ -1990,12 +1990,14 @@
 
         $('section').css('z-index', 1).css('opacity', 0).css('top', $('#doc-nav').css('height'));
         $('#s' + current_section).css('z-index', 2).css('opacity', 1);
-        $('section, .table, .table-cell, .slide').css('height', $(window).height() - parseInt($('#doc-nav').css('height')) + 'px');
+        $('section, .table, .table-cell, .slide').css('height', $(window).height() - parseInt($('#doc-nav').css(
+            'height')) + 'px');
         $('#cover').css('display', 'none').css('opacity', 0);
         $('#hero, #loader, #loader .table, #loader .table-cell').css('height', $(window).height() + 'px');
 
         $(window).on('resize', function () {
-            $('section, .table, .table-cell, .slide').css('height', $(window).height() - parseInt($('#doc-nav').css('height')) + 'px');
+            $('section, .table, .table-cell, .slide').css('height', $(window).height() - parseInt($('#doc-nav')
+                .css('height')) + 'px');
             $('#hero, #loader, #loader .table, #loader .table-cell').css('height', $(window).height() + 'px');
             mark1(doc_nav_active);
             mark2(doc_nav_active);
@@ -2034,7 +2036,8 @@
                 }, 0);
 
                 setTimeout(function () {
-                    $('section:not(#s' + doc_nav_active + ')').css('top', $('#doc-nav').css('height')).css('z-index', 1);
+                    $('section:not(#s' + doc_nav_active + ')').css('top', $('#doc-nav').css(
+                        'height')).css('z-index', 1);
                     $s.css('top', '100vh').addClass('active');
                     $s.animate({
                         top: $('#doc-nav').css('height'),
@@ -2070,20 +2073,21 @@
 
             });
 
-            $('.nav').hover(function () {
-            }, function () {
+            $('.nav').hover(function () {}, function () {
                 mark1(doc_nav_active);
             });
         });
 
         function mark1(n) {
             $n = $('.doc-nav-item:eq(' + (n - 1) + ')');
-            $('#doc-nav-marker1').css('left', $n.offset().left - 20).css('width', parseFloat($n.css('width'))).css('opacity', 1);
+            $('#doc-nav-marker1').css('left', $n.offset().left - 20).css('width', parseFloat($n.css('width'))).css(
+                'opacity', 1);
         }
 
         function mark2(n) {
             $n = $('.doc-nav-item:eq(' + (n - 1) + ')');
-            $('#doc-nav-marker2').css('left', $n.offset().left - 20).css('width', parseFloat($n.css('width'))).css('opacity', 1);
+            $('#doc-nav-marker2').css('left', $n.offset().left - 20).css('width', parseFloat($n.css('width'))).css(
+                'opacity', 1);
         }
 
         function onwindowload() {
@@ -2140,7 +2144,8 @@
 
             $('.right').unbind().on('click', function () {
                 let $car = $('#s' + current_section).find('.carousel');
-                let t = $car.data('total'), c = $car.data('active');
+                let t = $car.data('total'),
+                    c = $car.data('active');
                 $car.data('active', c % t + 1);
                 let cn = $car.data('active');
                 $('#cover').css('display', 'block');
@@ -2183,7 +2188,8 @@
 
             $('.left').unbind().on('click', function () {
                 let $car = $('#s' + current_section).find('.carousel');
-                let t = $car.data('total'), c = $car.data('active');
+                let t = $car.data('total'),
+                    c = $car.data('active');
                 $car.data('active', t - (t + 1 - c) % t);
                 let cn = $car.data('active');
                 $('#cover').css('display', 'block');
@@ -2274,7 +2280,8 @@
                 return setTimeout(fun2, count * 150);
             });
 
-            var menu_hidden = 1, len = $('.doc-nav-menu-item').length;
+            var menu_hidden = 1,
+                len = $('.doc-nav-menu-item').length;
 
             $('.nav-p').unbind().on('click', function () {
                 if (menu_hidden) {
@@ -2365,7 +2372,8 @@
 
         let int = 0;
 
-        let introcount = 0, introinit = -1;
+        let introcount = 0,
+            introinit = -1;
         $('.tour-element').each(function (index, element) {
             if ($(this).css('display') !== 'none') {
                 introcount = index;
