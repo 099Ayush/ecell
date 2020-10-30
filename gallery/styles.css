@@ -428,14 +428,14 @@ img {
 
 .front {
     z-index: 2;
-    transform: rotateY(180deg);
+    transform: rotateY(180deg) rotateX(180deg);
     opacity: 0;
     transition: all 0.5s;
 }
 
 .back {
     z-index: 1;
-    transform: rotateY(0);
+    transform: rotateY(0) rotateX(0);
     opacity: 1;
     transition: all 0.5s;
 }
