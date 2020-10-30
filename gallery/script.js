@@ -67,7 +67,6 @@ function onwindowload() {
         $('#img img').attr('src', './images/img' + active_img + '.jpg');
         prev_img = 5 - (6 - active_img) % 5;
         next_img = active_img % n_img + 1;
-<<<<<<< HEAD
         $('#cover').css('display', 'none');
     });
 
@@ -88,80 +87,6 @@ function onwindowload() {
         prev_img = 5 - (6 - active_img) % 5;
         next_img = active_img % n_img + 1;
         $('#cover').css('display', 'none');
-=======
-
-        $('.left.top').css('transform', 'rotateY(180deg)');
-        $('.left.bottom').css('transform', 'rotateY(0deg)');
-        $('#cover').css('display', 'initial');
-
-        async function asnc() {
-            $('.left, .right').css('transition', 'none');
-            $('.top').attr('src', './images/img' + active_img + '.jpg');
-            $('.left.top').css('transform', 'rotateY(0deg)');
-            $('.left.bottom').css('transform', 'rotateY(-180deg)').attr('src', './images/img' + prev_img + '.jpg');
-            $('#back .left').attr('src', './images/img' + prev_img + '.jpg');
-            $('#back .right, .right.bottom').attr('src', './images/img' + next_img + '.jpg');
-
-            setTimeout(() => {
-                $('.left, .right').css('transition', 'all 0.5s ease-in-out');
-                $('#cover').css('display', 'none');
-            }, 100);
-
-            $('#desc').html(arr[active_img - 1]);
-            $('#title').html(titles[active_img - 1]);
-            $('#img img').attr('src', 'images/img' + active_img + '.jpg');
-            $('#img #bgi').css('background-image', 'url(images/img' + active_img + '.jpg)');
-        }
-
-        setTimeout(async function () {
-            let $t = $('#book').clone();
-            await (async () => $t.appendTo('body'))();
-            await asnc();
-            setTimeout(() => $t.remove(), 10);
-        }, 500);
-    });
-
-    $('.right').hover(function () {
-        $('.left.bottom').css('z-index', 1);
-        $('.left.top').css('z-index', 2);
-        $('.right.bottom').css('z-index', 3);
-        $('.right.top').css('z-index', 4);
-    }).on('click', async function () {
-
-        active_img = active_img % n_img + 1;
-        prev_img = 5 - (6 - active_img) % 5;
-        next_img = active_img % n_img + 1;
-
-        $('.right.top').css('transform', 'rotateY(-180deg)');
-        $('.right.bottom').css('transform', 'rotateY(0deg)');
-        $('#cover').css('display', 'initial');
-
-        async function asnc() {
-            $('.left, .right').css('transition', 'none');
-            $('.top').attr('src', './images/img' + active_img + '.jpg');
-            $('.right.top').css('transform', 'rotateY(0deg)');
-            $('.right.bottom').css('transform', 'rotateY(180deg)').attr('src', './images/img' + next_img + '.jpg');
-            $('#back .right').attr('src', './images/img' + next_img + '.jpg');
-            $('#back .left, .left.bottom').attr('src', './images/img' + prev_img + '.jpg');
-
-            setTimeout(() => {
-                $('.left, .right').css('transition', 'all 0.5s ease-in-out');
-                $('#cover').css('display', 'none');
-            }, 100);
-
-            $('#desc').html(arr[active_img - 1]);
-            $('#title').html(titles[active_img - 1]);
-            $('#img img').attr('src', 'images/img' + active_img + '.jpg');
-            $('#img #bgi').css('background-image', 'url(images/img' + active_img + '.jpg)');
-        }
-
-        setTimeout(async function () {
-            let $t = $('#book').clone();
-            await (async () => $t.appendTo('body'))();
-            await asnc();
-            setTimeout(() => $t.remove(), 10);
-        }, 500);
->>>>>>> f4c5f3cdfa3287d68674384426fd7c7e59304f6a
     });
 
     $(window).on('resize', function () {
@@ -271,8 +196,6 @@ function focuss($t) {
     $('.focus').css('height', $t.css('height'));
     $('.focus').css('width');
     $('.focus').css('width', $t.css('width'));
-    if ($t.hasClass('left') || $t.hasClass('right')) $('.focus').css('width', parseFloat($t.css('width')) / 2 + 'px');
-    if ($t.hasClass('right')) $('.focus').css('left', $t.offset().left + parseFloat($t.css('width')) / 2 + 'px');
 
     let $i = $('.intro-dialog');
     $i.removeClass('active');
