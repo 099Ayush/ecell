@@ -47,9 +47,7 @@ if ($(window).width() <= 1000) {
 
 const $root = $('html, body'), $h = $('header li');
 
-$h.click(function () {
-    $h.removeClass('active');
-    $(this).addClass('active');
+$h.on('click', function () {
     $root.animate({
         scrollTop: $( $(this).find('a').attr('href') ).offset().top
     }, 500);
@@ -57,11 +55,10 @@ $h.click(function () {
     return false;
 });
 
-const anchors = $('a').filter('#home, #why, #launch, #speaker, #marathon, #contact');
+const anchors = $('a').filter('#home, #mission, #challenge, #participate, #speaker, #contact');
 // console.log(anchors);
 const s = anchors.map(it => anchors.eq(it).offset().top - 150);
 s.push(100000000);
-console.log(s);
 
 const $n = $('nav li');
 
@@ -85,11 +82,31 @@ $(window).on('scroll', function() {
     $n.removeClass('active');
     $n.eq(i).addClass('active');
 
-    if (countDone) return;
-    if (isScrolledIntoView($('#counter1'))) {
-        console.log('inView');
-        countDoneFunc();
-    }
+    (function() {
+        if (countDone) return;
+        if (isScrolledIntoView($('#counter1'))) {
+            countDoneFunc();
+        }
+    })();
+
+   $('.hl').each(function() {
+       const $t = $(this);
+       if ($t.data('done') === '1' || !isScrolledIntoView($(this))) return;
+       const $1 = $t.find('.hl1'), $2 = $t.find('.hl2');
+
+       setTimeout(function() {
+           const interval = setInterval(function() {
+               const h = $1.html();
+               if (h === '') return;
+               const c = h[0];
+               $1.html(h.slice(1));
+               $2.html($2.html() + c);
+
+               if ($1.html() === '') clearInterval(interval);
+           }, 20);
+           $t.data('done', '1');
+       }, 1000);
+   });
 });
 
 if (isScrolledIntoView($('#counter1'))) {
@@ -113,3 +130,8 @@ function countDoneFunc() {
         }, 1);
     });
 }
+
+$('.hl').each(function() {
+   const $t = $(this);
+   $t.html('<span class="hl2"></span><span class="hl1">' + $t.html() + '</span>');
+});

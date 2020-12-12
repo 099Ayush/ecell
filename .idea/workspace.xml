@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="0d0a0e65-cddf-4f8d-bc46-b26597d28266" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/social/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/social/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/social/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/social/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/social/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/social/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/social/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/social/styles.scss" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
+  <component name="ProjectId" id="1lXuf24GyG39xHMdZSjVIPa4fXh" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/social/icons" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="JavaScript.Libraries" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/social/icons" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0d0a0e65-cddf-4f8d-bc46-b26597d28266" name="Default Changelist" comment="" />
+      <created>1607755856829</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1607755856829</updated>
+      <workItem from="1607755858104" duration="374000" />
+      <workItem from="1607758046667" duration="13033000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="581" y="280" key="EditFileWatcherDialog" timestamp="1607756161110">
+      <screen x="0" y="0" width="1920" height="1036" />
+    </state>
+    <state x="581" y="280" key="EditFileWatcherDialog/0.0.1920.1036@0.0.1920.1036" timestamp="1607756161110" />
+    <state x="442" y="154" key="SettingsEditor" timestamp="1607759568290">
+      <screen x="0" y="0" width="1920" height="1036" />
+    </state>
+    <state x="442" y="154" key="SettingsEditor/0.0.1920.1036@0.0.1920.1036" timestamp="1607759568290" />
+    <state x="620" y="236" key="run.anything.popup" timestamp="1607766909029">
+      <screen x="0" y="0" width="1920" height="1036" />
+    </state>
+    <state x="620" y="236" key="run.anything.popup/0.0.1920.1036@0.0.1920.1036" timestamp="1607766909029" />
+  </component>
+</project>
