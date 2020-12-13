@@ -14,8 +14,9 @@ $('#hero-n-counter').css('min-height', `calc(100vh - ${$('header').css('height')
 
 $('.card-details').hover(function () {
     const index = $('.card-details').index($(this));
-    $('.card-image').eq(index).css('filter', 'blur(10px)');
-    $(this).width(parseFloat($('.card-image').width()) + 20 + 'px');
+    const $c = $('.card-image');
+    $c.eq(index).css('filter', 'blur(10px)');
+    $(this).width(parseFloat($c.css('width')) + 20 + 'px');
     $(this).addClass('show');
 }, function () {
     const index = $('.card-details').index($(this));
@@ -29,14 +30,15 @@ if ($(window).width() <= 1000) {
     $('#nav-button').on('click', function() {
         if (working) return;
         working = true;
+        const $n = $('nav'), $l = $('nav li');
         if (!navActive) {
-            $('nav').addClass('show');
-            $('nav').css('height', $('nav li').length * parseFloat($('nav li').css('height')) + 30 + 'px');
+            $n.addClass('show');
+            $n.css('height', $l.length * parseFloat($l.css('height')) + 30 + 'px');
             $(this).addClass('active');
             navActive = true;
         } else {
-            $('nav').removeClass('show');
-            $('nav').css('height', 0);
+            $n.removeClass('show');
+            $n.css('height', 0);
             $(this).removeClass('active');
             navActive = false;
         }
@@ -135,3 +137,4 @@ $('.hl').each(function() {
    const $t = $(this);
    $t.html('<span class="hl2"></span><span class="hl1">' + $t.html() + '</span>');
 });
+
