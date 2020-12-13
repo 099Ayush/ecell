@@ -152,7 +152,7 @@ header {
       color: #073939; }
   #main #speakers {
     display: grid;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: calc(25% - 15px) calc(25% - 15px) calc(25% - 15px) calc(25% - 15px);
     text-align: center;
     grid-row-gap: 40px;
     grid-column-gap: 20px; }
@@ -188,7 +188,7 @@ header {
 
 @media screen and (max-width: 1300px) {
   #speakers {
-    grid-template-columns: auto auto auto !important; } }
+    grid-template-columns: calc(33.33% - 13.33px) calc(33.33% - 13.33px) calc(33.33% - 13.33px) !important; } }
 @media screen and (max-width: 1030px) {
   header nav {
     position: fixed;
@@ -228,7 +228,7 @@ header {
       border-radius: 50px; }
 
   #speakers {
-    grid-template-columns: auto auto !important; } }
+    grid-template-columns: calc(50% - 10px) calc(50% - 10px) !important; } }
 @media screen and (max-width: 800px) {
   #hero-n-counter {
     display: block;
