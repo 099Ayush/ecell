@@ -19,11 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0d0a0e65-cddf-4f8d-bc46-b26597d28266" name="Default Changelist" comment="">
+    <list default="true" id="0d0a0e65-cddf-4f8d-bc46-b26597d28266" name="Default Changelist" comment="Minor changes and code optimization">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/social/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/social/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/social/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/social/script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/social/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/social/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/social/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/social/styles.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,13 +48,15 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/social/icons" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/social/images/logos" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="JavaScript.Libraries" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/social/images/logos" />
+      <recent name="$PROJECT_DIR$/social/images/speakers" />
       <recent name="$PROJECT_DIR$/social/icons" />
     </key>
   </component>
@@ -69,8 +69,46 @@
       <option name="presentableId" value="Default" />
       <updated>1607755856829</updated>
       <workItem from="1607755858104" duration="374000" />
-      <workItem from="1607758046667" duration="13033000" />
+      <workItem from="1607758046667" duration="13634000" />
+      <workItem from="1607834019440" duration="6135000" />
+      <workItem from="1607846964111" duration="3910000" />
     </task>
+    <task id="LOCAL-00001" summary="Update in contact details">
+      <created>1607834107429</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1607834107429</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Add speakers details">
+      <created>1607834990074</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1607834990074</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Update speakers info">
+      <created>1607837056774</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1607837056774</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Add logos">
+      <created>1607839283913</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1607839283913</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Minor changes and code optimization">
+      <created>1607848788141</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1607848788141</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -86,8 +124,22 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Update in contact details" />
+    <MESSAGE value="Add speakers details" />
+    <MESSAGE value="Update speakers info" />
+    <MESSAGE value="Add logos" />
+    <MESSAGE value="Minor change" />
+    <MESSAGE value="Minor changes and code optimization" />
+    <option name="LAST_COMMIT_MESSAGE" value="Minor changes and code optimization" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="694" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1607838407708">
+      <screen x="0" y="0" width="1920" height="1036" />
+    </state>
+    <state x="694" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1036@0.0.1920.1036" timestamp="1607838407708" />
     <state x="581" y="280" key="EditFileWatcherDialog" timestamp="1607756161110">
       <screen x="0" y="0" width="1920" height="1036" />
     </state>
@@ -96,9 +148,17 @@
       <screen x="0" y="0" width="1920" height="1036" />
     </state>
     <state x="442" y="154" key="SettingsEditor/0.0.1920.1036@0.0.1920.1036" timestamp="1607759568290" />
+    <state x="556" y="251" key="Vcs.Push.Dialog.v2" timestamp="1607849625914">
+      <screen x="0" y="0" width="1920" height="1036" />
+    </state>
+    <state x="556" y="251" key="Vcs.Push.Dialog.v2/0.0.1920.1036@0.0.1920.1036" timestamp="1607849625914" />
     <state x="620" y="236" key="run.anything.popup" timestamp="1607766909029">
       <screen x="0" y="0" width="1920" height="1036" />
     </state>
     <state x="620" y="236" key="run.anything.popup/0.0.1920.1036@0.0.1920.1036" timestamp="1607766909029" />
+    <state x="623" y="229" key="search.everywhere.popup" timestamp="1607837574714">
+      <screen x="0" y="0" width="1920" height="1036" />
+    </state>
+    <state x="623" y="229" key="search.everywhere.popup/0.0.1920.1036@0.0.1920.1036" timestamp="1607837574714" />
   </component>
 </project>
