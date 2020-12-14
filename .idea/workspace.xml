@@ -20,7 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0d0a0e65-cddf-4f8d-bc46-b26597d28266" name="Default Changelist" comment="Minor changes and code optimization">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/social/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/social/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,6 +72,7 @@
       <workItem from="1607834019440" duration="6135000" />
       <workItem from="1607846964111" duration="6153000" />
       <workItem from="1607862304047" duration="1720000" />
+      <workItem from="1607932044818" duration="704000" />
     </task>
     <task id="LOCAL-00001" summary="Update in contact details">
       <created>1607834107429</created>
